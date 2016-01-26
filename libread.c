@@ -59,7 +59,8 @@ int readFrame(FILE* tmpFp, char* pBuffer)
 				//printf("NAL\n");
 			}
 			if(index == 4 && strcmp(head, heads) == 0){
-				break;
+				if(count > 32)break;
+				else index = 0;
 			}
 		}else{
 			index=0;
